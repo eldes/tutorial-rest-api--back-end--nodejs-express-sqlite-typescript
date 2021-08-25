@@ -259,6 +259,7 @@ Em seguida, ajustamos o script principal, ***index.ts***, para usar esse conjunt
 
 ```js
 import express from 'express'
+import cors from 'cors'
 import itensRouter from './routers/itens-router'
 
 // Porta do servidor
@@ -353,6 +354,7 @@ Primeiro devemos configurar o nosso app Express para identificar o formato JSON.
 
 ```js
 import express from 'express'
+import cors from 'cors'
 import itensRouter from './routers/itens-router'
 
 // Porta do servidor

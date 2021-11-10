@@ -30,7 +30,7 @@ app.use('/api', itensRouter)
 
 // Resposta padrão para quaisquer outras requisições:
 app.use((req, res) => {
-	res.status(404)
+	res.status(404).send()
 })
 
 // Inicia o sevidor

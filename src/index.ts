@@ -1,5 +1,6 @@
 import cors from 'cors';
 import express from 'express';
+import serverless from 'serverless-http';
 import itensRouter from './routers/itens-router';
 
 // Porta do servidor
@@ -26,7 +27,8 @@ app.use(cors({
 }))
 
 // Rotas
-app.use('/api', itensRouter)
+const routerPrefix = process.env.NETLIFY ? '/.netlify/functions/api' : '/api';
+app.use(routerPrefix, itensRouter);  // path must route to lambda
 
 // Resposta padrão para quaisquer outras requisições:
 app.use((req, res) => {
@@ -37,3 +39,5 @@ app.use((req, res) => {
 app.listen(PORT, () => {
 	console.log(`Servidor rodando com sucesso ${HOSTNAME}:${PORT}`)
 })
+
+module.exports.handler = serverless(app);

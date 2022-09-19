@@ -1,6 +1,6 @@
-import express from 'express'
-import cors from 'cors'
-import itensRouter from './routers/itens-router'
+import cors from 'cors';
+import express from 'express';
+import itensRouter from './routers/itens-router';
 
 // Porta do servidor
 const PORT = process.env.PORT || 4000
@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
 
 // Cors
 app.use(cors({
-	origin: ['http://localhost:3000']
+	origin: '*'
 }))
 
 // Rotas
